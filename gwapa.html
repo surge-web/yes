@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Aesthetic Button Reveal</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: mediumpurple; /* Light purple background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        
+        .container {
+    text-align: center;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    box-shadow: 0 1px 35px pink;
+    overflow: auto; /* Handle overflow if needed */
+}
+        
+        h1 {
+            font-size: 30px;
+            color: #9b59b6; /* Purple color */
+            margin-bottom: 20px;
+        }
+        
+        .reveal-button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #9b59b6; /* Purple button */
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .reveal-button:hover {
+            background-color: lightcoral; /* Darker purple when hovered */
+            box-shadow: 0 2px 35px purple;
+        }
+
+        .content {
+    display: none;
+    margin-top: 30px;
+    background-color: #f1e6f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    min-height: 300px;  /* Ensure there's enough height for content */
+    overflow: visible;  /* Allow content to overflow */
+}
+        }
+
+        .content h2 {
+            color: #9b59b6; /* Purple header for content */
+        }
+
+        .content p {
+            color: #6c4f9d; /* Darker purple text */
+            font-size: 1.1rem;
+        }
+
+       .content img {
+    width: 100%;
+    max-width: 300px; /* Adjust maximum width for image */
+    margin-top: 20px;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    height: auto;  /* Ensure the height scales with the width */
+     box-shadow: 0 2px 35px purple;
+}
+
+        /* YouTube Video Responsive */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 10px;
+            box-shadow: 0 2px 35px purple;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; /* Smaller heading for tablets and below */
+            }
+
+            .reveal-button {
+                font-size: 1rem; /* Adjust button size */
+                padding: 12px 25px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .content p {
+                font-size: 1rem; /* Smaller text on mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem; /* Further reduce heading size on small screens */
+            }
+
+            .reveal-button {
+                font-size: 0.9rem; /* Smaller button text */
+                padding: 10px 20px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .content p {
+                font-size: 0.95rem; /* Adjust text size for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kung gwapa ka, click the button</h1>
+        <button class="reveal-button" onclick="revealContent()">Click to Reveal</button>
+        
+        <div class="content" id="content">
+
+            <h2>Hi, Gelaaaa!!</h2>
+            <p>Hi, hello, hola!! Finals had been so tough, I know, but I just wanted to say that you're doing great, very great. I'm so proud of you for going through everything bravely despite the challenges that you faced. Even with so much going on in your life, you never failed to make us, your friends, feel special. You are such an amazing friend, and I hope that people can appreciate you more for that. I always hope and pray that the universe will make the world less cruel and more kind for you. You deserve all the good things that God created in this world. <br><br>
+
+            Whether we’re laughing, talking, or even just hanging out in silence, every moment with you is something I treasure. You bring so much joy and light into the world, and I’m lucky to be able to call you my friend. Thank you for being you. Congratulations on surviving another school year and surviving senior high school. Good luck on your college journey, gelaaaa!! Always remember that you have us, your friends, as your support system. Never hesitate to run and come to us when you need some shoulder to lean on. We love you, Gela, and we appreciate you for everything that you did and will do.</p>
+            <img src="gelabayot.jpg" alt="Aesthetic Image"><br><br>
+            "Don't listen to them, cause what do they know"<br><br>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/WNN4m8WEwE8?si=5fYJOzOcDQXTdBEG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            </div>
+           
+        </div>
+    </div>
+
+    <script>
+        function revealContent() {
+            var content = document.getElementById("content");
+            var image = content.querySelector("img");
+            
+            content.style.display = "block";
+            content.style.opacity = "1";
+            content.style.transform = "translateY(0)";
+            
+            // Delay image reveal for a smooth effect
+            setTimeout(function() {
+                image.style.opacity = "1";
+                image.style.transform = "translateY(0)";
+            }, 200); // Slight delay before the image shows up
+        }
+    </script>
+</body>
+</html>
